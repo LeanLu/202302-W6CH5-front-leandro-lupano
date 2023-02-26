@@ -1,7 +1,7 @@
 import {
   KnowledgeStructure,
   ProtoKnowledgeStructure,
-} from "../models/knowledge";
+} from "../../models/knowledge";
 
 export interface KnowledgeApiRepoStructure {
   loadKnowledges(): Promise<KnowledgeStructure[]>;

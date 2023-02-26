@@ -6,7 +6,7 @@ import {
   ProtoKnowledgeStructure,
 } from "../models/knowledge";
 import * as ac from "../reducer/knowledges.actions.creator";
-import { KnowledgeApiRepo } from "../services/knowledge.api.repo";
+import { KnowledgeApiRepo } from "../services/repository/knowledge.api.repo";
 
 export function useKnowledges(repo: KnowledgeApiRepo) {
   const knowledges = useSelector((state: RootState) => state.knowledge);
