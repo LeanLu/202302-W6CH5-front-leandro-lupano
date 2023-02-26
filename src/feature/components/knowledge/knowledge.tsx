@@ -10,8 +10,9 @@ type KnowledgeProps = {
 };
 
 export function Knowledge({ knowledge, onDelete }: KnowledgeProps) {
+  // TEMPORAL: Primera versión. Se deja para evaluar resultado.
+  // Función deleteKnowledge pasada como props.
   // const repo = useMemo(() => new KnowledgeApiRepo(), []);
-
   // const { deleteKnowledge } = useKnowledges(repo);
 
   const handlerDeleteButton = async (id: KnowledgeStructure["id"]) => {
