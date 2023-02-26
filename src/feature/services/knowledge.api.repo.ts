@@ -60,8 +60,6 @@ export class KnowledgeApiRepo {
   async updateKnowledge(
     knowledge: Partial<KnowledgeStructure>
   ): Promise<KnowledgeStructure> {
-    if (knowledge.id === undefined)
-      throw new Error("The id number is required");
     const url = this.url;
     const resp = await fetch(url, {
       method: "PATCH",
