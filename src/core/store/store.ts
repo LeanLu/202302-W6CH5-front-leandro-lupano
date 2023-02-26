@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { knowledgeReducer } from "../../feature/reducer/knowledge.reducer";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    knowledge: knowledgeReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
