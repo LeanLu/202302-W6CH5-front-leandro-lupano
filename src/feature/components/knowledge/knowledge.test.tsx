@@ -22,7 +22,7 @@ describe("Given the Knowledge component", () => {
       );
     });
 
-    test("Then, the header <h1> element should be in the document", async () => {
+    test("Then, the button element should be in the document", async () => {
       const elements = await screen.findAllByRole("button");
       expect(elements[0]).toBeInTheDocument();
     });
