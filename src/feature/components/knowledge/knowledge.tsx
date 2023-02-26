@@ -1,7 +1,7 @@
-// import { useMemo } from "react";
-// import { useKnowledges } from "../../hooks/use.knowledges";
+// TEMPORAL: import { useMemo } from "react";
+// TEMPORAL: import { useKnowledges } from "../../hooks/use.knowledges";
 import { KnowledgeStructure } from "../../models/knowledge";
-// import { KnowledgeApiRepo } from "../../services/repository/knowledge.api.repo";
+// TEMPORAL: import { KnowledgeApiRepo } from "../../services/repository/knowledge.api.repo";
 import "./knowledge.css";
 
 type KnowledgeProps = {
@@ -15,8 +15,8 @@ export function Knowledge({ knowledge, onDelete }: KnowledgeProps) {
   // const repo = useMemo(() => new KnowledgeApiRepo(), []);
   // const { deleteKnowledge } = useKnowledges(repo);
 
-  const handlerDeleteButton = async (id: KnowledgeStructure["id"]) => {
-    await onDelete(id);
+  const handlerDeleteButton = (id: KnowledgeStructure["id"]) => {
+    onDelete(id);
   };
 
   return (
