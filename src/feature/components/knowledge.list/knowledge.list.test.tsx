@@ -5,12 +5,13 @@ import { Provider } from "react-redux";
 import { store } from "../../../core/store/store";
 import { KnowledgesList } from "./knowledge.list";
 import React from "react";
-// TEMPORA: Test sin poder realizar:
+// TEMPORAL: Test sin poder realizar:
 // import { Knowledge } from "../knowledge/knowledge";
 
 jest.mock("../knowledge/knowledge");
 
 describe("Given the KnowledgeList component", () => {
+  // TEMPORAL: Test sin poder realizar:
   // const deleteKnowledge = jest.fn() as (id: number) => Promise<void>;
   // const loadKnowledges = jest.fn() as () => Promise<void>;
 
