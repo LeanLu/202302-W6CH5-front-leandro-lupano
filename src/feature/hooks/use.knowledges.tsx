@@ -46,8 +46,6 @@ export function useKnowledges(repo: KnowledgeApiRepo) {
   };
 
   const updateKnowledge = async (knowledge: Partial<KnowledgeStructure>) => {
-    if (knowledge.id === undefined)
-      throw new Error("The id number is required");
     try {
       const finalKnowledge = await repo.updateKnowledge(knowledge);
       dispatch(ac.updateCreator(finalKnowledge));
