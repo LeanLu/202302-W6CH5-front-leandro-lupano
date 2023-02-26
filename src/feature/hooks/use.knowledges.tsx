@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../core/store/store";
 import {
@@ -13,17 +13,27 @@ export function useKnowledges(repo: KnowledgeApiRepo) {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
-    const loadKnowledges = async () => {
-      try {
-        const data = await repo.loadKnowledges();
-        dispatch(ac.loadCreator(data));
-      } catch (error) {
-        console.log((error as Error).message);
-      }
-    };
+  // TEMPORAL: Revisando la mejor manera de refrescar la página al hacer un Delete.
+  // useEffect(() => {
+  //   const loadKnowledges = async () => {
+  //     try {
+  //       const data = await repo.loadKnowledges();
+  //       dispatch(ac.loadCreator(data));
+  //     } catch (error) {
+  //       console.log((error as Error).message);
+  //     }
+  //   };
 
-    loadKnowledges();
+  //   loadKnowledges();
+  // }, [dispatch, repo]);
+
+  const loadKnowledges = useCallback(async () => {
+    try {
+      const data = await repo.loadKnowledges();
+      dispatch(ac.loadCreator(data));
+    } catch (error) {
+      console.log((error as Error).message);
+    }
   }, [dispatch, repo]);
 
   const addKnowledge = async (knowledge: ProtoKnowledgeStructure) => {
@@ -48,7 +58,7 @@ export function useKnowledges(repo: KnowledgeApiRepo) {
 
   const deleteKnowledge = async (id: KnowledgeStructure["id"]) => {
     try {
-      repo.deleteKnowledge(id);
+      await repo.deleteKnowledge(id);
       dispatch(ac.deleteCreator(id));
     } catch (error) {
       console.log((error as Error).message);
@@ -60,5 +70,6 @@ export function useKnowledges(repo: KnowledgeApiRepo) {
     addKnowledge,
     updateKnowledge,
     deleteKnowledge,
+    loadKnowledges,
   };
 }
