@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { KnowledgesList } from "../../feature/components/knowledge.list/knowledge.list";
-import App from "./app";
+import App from "./App";
 
 jest.mock("../../feature/components/knowledge.list/knowledge.list");
 
