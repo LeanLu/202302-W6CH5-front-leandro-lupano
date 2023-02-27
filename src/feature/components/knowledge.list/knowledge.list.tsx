@@ -1,5 +1,6 @@
-import { useMemo, useEffect } from "react";
+import { useMemo } from "react";
 import { useKnowledges } from "../../hooks/use.knowledges";
+import { KnowledgeStructure } from "../../models/knowledge";
 import { KnowledgeApiRepo } from "../../services/repository/knowledge.api.repo";
 import { Knowledge } from "../knowledge/knowledge";
 import "./knowledge.list.css";
@@ -7,16 +8,11 @@ import "./knowledge.list.css";
 export function KnowledgesList() {
   const repo = useMemo(() => new KnowledgeApiRepo(), []);
 
-  const { knowledges, deleteKnowledge, loadKnowledges } = useKnowledges(repo);
+  const { knowledges, deleteKnowledge } = useKnowledges(repo);
 
-  useEffect(() => {
-    loadKnowledges();
-  }, [loadKnowledges]);
-
-  const handleDelete = async (id: string) => {
-    await deleteKnowledge(id);
-    await loadKnowledges();
-  };
+  // const handleDelete = async (id: string) => {
+  //   await deleteKnowledge(id);
+  // };
 
   return (
     <section className="knowledges-list">
@@ -25,11 +21,11 @@ export function KnowledgesList() {
       </div>
 
       <ul className="knowledges-list__items">
-        {knowledges.map((item) => (
+        {knowledges.map((item: KnowledgeStructure) => (
           <Knowledge
             key={item.id}
             knowledge={item}
-            onDelete={handleDelete}
+            deleteKnowledgeProps={deleteKnowledge}
           ></Knowledge>
         ))}
       </ul>
