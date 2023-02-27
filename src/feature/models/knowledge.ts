@@ -1,5 +1,5 @@
 type HasId = {
-  id: number;
+  id: string;
 };
 
 export type ProtoKnowledgeStructure = {

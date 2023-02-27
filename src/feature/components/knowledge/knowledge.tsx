@@ -6,17 +6,17 @@ import "./knowledge.css";
 
 type KnowledgeProps = {
   knowledge: KnowledgeStructure;
-  onDelete: (id: KnowledgeStructure["id"]) => void;
+  deleteKnowledgeProps: (id: KnowledgeStructure["id"]) => void;
 };
 
-export function Knowledge({ knowledge, onDelete }: KnowledgeProps) {
+export function Knowledge({ knowledge, deleteKnowledgeProps }: KnowledgeProps) {
   // TEMPORAL: Primera versión. Se deja para evaluar resultado.
   // Función deleteKnowledge pasada como props.
   // const repo = useMemo(() => new KnowledgeApiRepo(), []);
   // const { deleteKnowledge } = useKnowledges(repo);
 
   const handlerDeleteButton = (id: KnowledgeStructure["id"]) => {
-    onDelete(id);
+    deleteKnowledgeProps(id);
   };
 
   return (

@@ -8,15 +8,18 @@ import { KnowledgeStructure } from "../../models/knowledge";
 import { Knowledge } from "./knowledge";
 
 describe("Given the Knowledge component", () => {
-  const knowledge: KnowledgeStructure = { name: "test", id: 1 };
-  const onDelete = jest.fn() as (id: KnowledgeStructure["id"]) => void;
+  const knowledge: KnowledgeStructure = { name: "test", id: "1" };
+  const deleteKnowledge = jest.fn() as (id: KnowledgeStructure["id"]) => void;
 
   describe("When the Component is rendered", () => {
     beforeEach(async () => {
       await act(async () =>
         render(
           <Provider store={store}>
-            <Knowledge knowledge={knowledge} onDelete={onDelete}></Knowledge>
+            <Knowledge
+              knowledge={knowledge}
+              deleteKnowledgeProps={deleteKnowledge}
+            ></Knowledge>
           </Provider>
         )
       );
@@ -30,7 +33,7 @@ describe("Given the Knowledge component", () => {
     test("Then, if the user clicks on Delete button the onDelete function have been called", async () => {
       const elements = await screen.findAllByRole("button");
       await act(async () => userEvent.click(elements[1]));
-      expect(onDelete).toHaveBeenCalled();
+      expect(deleteKnowledge).toHaveBeenCalled();
     });
   });
 });

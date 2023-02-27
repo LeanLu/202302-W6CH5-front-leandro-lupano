@@ -10,17 +10,17 @@ describe("Given the knowledge reducer", () => {
     mockState = [
       {
         name: "Test-1",
-        id: 1,
+        id: "1",
       },
       {
         name: "Test-2",
-        id: 2,
+        id: "2",
       },
     ];
 
     mockPayload = {
       name: "Test-3",
-      id: 2,
+      id: "2",
     };
   });
 
@@ -56,7 +56,7 @@ describe("Given the knowledge reducer", () => {
 
   describe("When the action is delete", () => {
     test("Then, the function should been called", () => {
-      const result = knowledgeReducer(mockState, ac.deleteCreator(2));
+      const result = knowledgeReducer(mockState, ac.deleteCreator("2"));
       expect(result).toEqual(mockState);
     });
   });
