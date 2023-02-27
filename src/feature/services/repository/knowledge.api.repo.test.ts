@@ -41,14 +41,14 @@ describe("Given KnowledgeApiRepo class and its intance", () => {
         ]),
       });
 
-      const result = await repo.getKnowledge(1);
+      const result = await repo.getKnowledge("1");
       expect(result).toEqual([{ name: "test" }]);
     });
 
     test("Then if the fetch response is not Ok, the result should throw an error", async () => {
       global.fetch = jest.fn().mockResolvedValue("Error Test");
 
-      const result = repo.getKnowledge(1);
+      const result = repo.getKnowledge("1");
       await expect(result).rejects.toThrow();
     });
   });
@@ -104,14 +104,14 @@ describe("Given KnowledgeApiRepo class and its intance", () => {
         }),
       });
 
-      const result = await repo.deleteKnowledge(1);
+      const result = await repo.deleteKnowledge("1");
       expect(result).toBe(undefined);
     });
 
     test("Then if the fetch response is not Ok, the result should throw an error", async () => {
       global.fetch = jest.fn().mockResolvedValue("Error Test");
 
-      const result = repo.deleteKnowledge(1);
+      const result = repo.deleteKnowledge("1");
       await expect(result).rejects.toThrow();
     });
   });

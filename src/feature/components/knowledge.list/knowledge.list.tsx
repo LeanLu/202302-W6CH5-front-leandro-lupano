@@ -13,7 +13,7 @@ export function KnowledgesList() {
     loadKnowledges();
   }, [loadKnowledges]);
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string) => {
     await deleteKnowledge(id);
     await loadKnowledges();
   };

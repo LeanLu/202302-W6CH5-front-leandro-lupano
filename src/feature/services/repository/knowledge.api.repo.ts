@@ -60,7 +60,7 @@ export class KnowledgeApiRepo {
   async updateKnowledge(
     knowledge: Partial<KnowledgeStructure>
   ): Promise<KnowledgeStructure> {
-    const url = this.url;
+    const url = this.url + knowledge.id;
     const resp = await fetch(url, {
       method: "PATCH",
       body: JSON.stringify(knowledge),

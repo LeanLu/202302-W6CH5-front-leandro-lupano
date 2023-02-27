@@ -15,7 +15,7 @@ describe("Given the knowledge custom hook and the TestComponent", () => {
   beforeEach(async () => {
     mockPayload = {
       name: "Test-3",
-      id: 2,
+      id: "2",
     };
 
     mockRepo = {
@@ -34,7 +34,7 @@ describe("Given the knowledge custom hook and the TestComponent", () => {
           <button onClick={() => loadKnowledges()}>load</button>
           <button onClick={() => addKnowledge(mockPayload)}>add</button>
           <button onClick={() => updateKnowledge(mockPayload)}>update</button>
-          <button onClick={() => deleteKnowledge(1)}>delete</button>
+          <button onClick={() => deleteKnowledge("1")}>delete</button>
         </>
       );
     };
@@ -98,7 +98,7 @@ describe("Given the knowledge custom hook and the TestError", () => {
 
     mockPayload = {
       name: "Test-3",
-      id: 2,
+      id: "2",
     };
 
     mockRepoError = {
@@ -119,7 +119,7 @@ describe("Given the knowledge custom hook and the TestError", () => {
           <button onClick={() => updateKnowledge(mockPayload)}>
             updateError
           </button>
-          <button onClick={() => deleteKnowledge(1)}>deleteError</button>
+          <button onClick={() => deleteKnowledge("1")}>deleteError</button>
         </>
       );
     };

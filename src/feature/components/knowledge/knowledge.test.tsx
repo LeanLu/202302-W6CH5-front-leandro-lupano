@@ -8,7 +8,7 @@ import { KnowledgeStructure } from "../../models/knowledge";
 import { Knowledge } from "./knowledge";
 
 describe("Given the Knowledge component", () => {
-  const knowledge: KnowledgeStructure = { name: "test", id: 1 };
+  const knowledge: KnowledgeStructure = { name: "test", id: "1" };
   const onDelete = jest.fn() as (id: KnowledgeStructure["id"]) => void;
 
   describe("When the Component is rendered", () => {
